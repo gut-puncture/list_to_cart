@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">GroceryApp</string>
+    <string name="upload_grocery_list">Upload Grocery List</string> 
+</resources>

@@ -1,0 +1,31 @@
+# Android/IntelliJ
+*.iml
+.gradle/
+.idea/
+build/
+captures/
+local.properties
+.DS_Store
+
+# Gradle files
+gradle/
+gradlew
+gradlew.bat
+
+# Build files
+**/build/
+**/debug/
+**/release/
+
+# Generated files
+bin/
+gen/
+out/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
