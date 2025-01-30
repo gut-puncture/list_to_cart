@@ -1,3 +1,6 @@
+This is what the prompt should be for the Production implementation. The demo implementation was much simpler.
+
+PRODUCTION PROMPT:
 Given an image of a grocery list, extract the grocery items and their details. Parse both handwritten and typed text.
 
 If the image is unclear, blurry, or unreadable, please respond with:
