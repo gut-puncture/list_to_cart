@@ -1,0 +1,44 @@
+Given an image of a grocery list, extract the grocery items and their details. Parse both handwritten and typed text.
+
+If the image is unclear, blurry, or unreadable, please respond with:
+{"error": "Image quality insufficient for accurate extraction"}
+
+For each grocery item, extract:
+1. Full item name including all descriptors (e.g., 'organic strawberries', 'low-fat milk', 'extra virgin olive oil')
+2. Quantity (as a number)
+3. Unit of measurement
+4. Additional notes or specifications (if present).
+
+Return the data in the following JSON format:
+{
+  "grocery_list": [
+    {
+      "item_name": string,         // Include all descriptors/adjectives
+      "quantity": number | null,   // null if quantity not specified
+      "unit": string | null,       // e.g., "oz", "lbs", "pieces", null if not specified
+      "notes": string | null       // Any additional specifications
+    }
+  ],
+  "metadata": {
+    "total_items": number,
+    "has_quantities": boolean,     // true if at least one item has quantity
+    "image_quality": string        // "good", "fair", or "poor"
+  }
+}
+
+Special handling instructions:
+- For items without specified quantities, set "quantity" to null
+- For items without units (e.g., "2 apples"), use natural units like "pieces".
+- For combined items (e.g., "fruits and vegetables"), split into separate entries
+- Standardize common unit abbreviations (litre to lbs, kilograms/kilos to kilograms etc.)
+- Preserve brand names when specified
+- Handle fractional quantities (convert to decimal)
+
+Example:
+Input: "2 1/2 lbs organic strawberries"
+Output item: {
+  "item_name": "organic strawberries",
+  "quantity": 2.5,
+  "unit": "lbs",
+  "notes": null
+}
